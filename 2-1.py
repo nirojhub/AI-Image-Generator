@@ -9,12 +9,11 @@ pipe.enable_attention_slicing()
 pipe = pipe.to("cuda")
 
 prompts = [
-    "a programmer touching grass",
-    "A dreamlike landscape with floating islands and waterfalls under a starry sky.",
-    "A Roman soldier standing guard in front of the Colosseum during sunset.",
-    "A cyberpunk character with neon tattoos in a rain-soaked alley."
+    "a programmer touching grass"
 ]
-
+#    "A dreamlike landscape with floating islands and waterfalls under a starry sky.",
+#    "A Roman soldier standing guard in front of the Colosseum during sunset.",
+#    "A cyberpunk character with neon tattoos in a rain-soaked alley.
 results = pipe(
     prompts,
     num_inference_steps=50,
