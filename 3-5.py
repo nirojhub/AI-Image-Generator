@@ -8,7 +8,7 @@ pipe = StableDiffusion3Pipeline.from_pretrained(large_model, torch_dtype=torch.b
 pipe.enable_attention_slicing()
 pipe = pipe.to("cuda")
 
-prompt = "A Roman soldier standing guard in front of the Colosseum during sunset."
+prompt = "A small cat sitting on a chair in a park in a very colorful environment."
 
 '''results = pipe(
     prompt,

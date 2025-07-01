@@ -1,4 +1,5 @@
 import torch
+from datetime import datetime
 from diffusers import StableDiffusionPipeline, DPMSolverMultistepScheduler
 
 small_model = "stabilityai/stable-diffusion-2-1"
@@ -9,7 +10,7 @@ pipe.enable_attention_slicing()
 pipe = pipe.to("cuda")
 
 prompts = [
-    "a programmer touching grass"
+    "A small cat sitting on a chair in a park in a very colorful environment"
 ]
 #    "A dreamlike landscape with floating islands and waterfalls under a starry sky.",
 #    "A Roman soldier standing guard in front of the Colosseum during sunset.",
@@ -17,13 +18,11 @@ prompts = [
 results = pipe(
     prompts,
     num_inference_steps=50,
-    guidance_scale=3.5,
-    height=512,
-    width=512
+    guidance_scale=3.5
 )
 
 images = results.images
 
 # Save or display the images
 for i, img in enumerate(images):
-    img.save(f"image_{i}.png")  # Save each image
+    img.save(f"image_{i}_{datetime.now().strftime("%d-%m-%Y-%H-%M-%S")}.png")  # Save each image
